@@ -10,14 +10,10 @@
 ###############################
 #
 dirinstall=${PWD}
-astroindi=/$HOME/astro-indi
-#
-################################################################
-# copie du contenu du dossier GitHub dans /home/$USER/astro-indi
-################################################################
-#
-cp -r $dirinstall/* $astroindi/
-cd $astroindi/
+cd $dirinstall
 chmod +x ./*            # rendre executable les fichiers
 
+./prereq.sh
+./install_server.sh
 
+exit
