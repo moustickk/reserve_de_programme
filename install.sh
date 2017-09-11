@@ -14,6 +14,6 @@ cd $dirinstall
 chmod +x ./*            # rendre executable les fichiers
 
 ./prereq.sh
-./install_server.sh
+./server.sh
 
 exit
