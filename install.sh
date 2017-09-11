@@ -15,5 +15,6 @@ chmod +x ./*.sh            # rendre executable les fichiers
 
 ./prereq.sh
 ./server.sh
+./indiweb.sh
 
 #exit
