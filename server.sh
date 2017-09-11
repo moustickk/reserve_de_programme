@@ -6,7 +6,7 @@
 #!/bin/bash
 
 
-EN COURS DE CONSTRUCTION
+#EN COURS DE CONSTRUCTION
 
 ######
 # Options d'installation
@@ -17,19 +17,19 @@ trap "rm -f $fichtemp" 0 1 2 5 15
 $DIALOG --backtitle "Option" \
 	--title "Options" --clear \
     --checklist "Select Option" 20 61 8 \
-        0 "Mate destktop and components" off\
-		1 "Fr language" off 2> $fichtemp
+        0 "indi full installation complete" off\
+		1 "indi installation personnalisée" off 2> $fichtemp
 valret=$?
-language=0
-installMate=0
+indi_perso=0
+indi_full=0
 for n in $(cat $fichtemp)
 do
 	case $n in
 	0)
-		installMate=1
+		indi_full=1
 		;;
 	1)
-		language=1
+		indi_perso=1
 		;;
 	esac
 done
@@ -37,11 +37,13 @@ done
 # Options de apt-get pour l'installation des paquets
 options="-y"
 #  Désinstallation de xfce et installation de Mate
-if [[ $installMate == 1 ]]
+if [[ $indi_full == 1 ]]
 then
 
 fi
-if [[ $language == 1 ]]
+if [[ $indi_perso == 1 ]]
 then
 	
 fi
+
+

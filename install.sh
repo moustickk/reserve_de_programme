@@ -11,9 +11,9 @@
 #
 dirinstall=${PWD}
 cd $dirinstall
-chmod +x ./*            # rendre executable les fichiers
+chmod +x ./*.sh            # rendre executable les fichiers
 
 ./prereq.sh
 ./server.sh
 
-exit
+#exit
