@@ -5,11 +5,14 @@
 ################################################
 #!/bin/bash
 #
-########################
-# installation de phd2 #
-########################
+##################################
+# installation de astrometry.net #
+##################################
 #
-sudo apt-get install -y phd2
+sudo apt-get $options install astrometry.net
+#
+./index.sh
 #
 exit
+
 

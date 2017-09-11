@@ -28,6 +28,7 @@ esac
 # telechargement #
 ##################
 #
+
 software="atikccd"
 version="$software""-""1.24"
 file="$version""$proc.deb"
@@ -36,5 +37,7 @@ wget http://download.cloudmakers.eu/$file -P /tmp/
 sudo dpkg -i /tmp/$file
 
 sudo apt install -f
+
+./astrometry.sh
 
 exit

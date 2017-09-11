@@ -8,7 +8,7 @@
 # pre-req #
 ###########
 #
-sudo apt-get install -y python-pip
+sudo apt-get -y install python-pip
 #
 #######################################
 # installation des sources du serveur #
@@ -39,3 +39,4 @@ sudo chmod 644 $dir/indiwebmanager.service
 sudo systemctl daemon-reload
 sudo systemctl enable indiwebmanager.service
 sudo systemctl start indiwebmanager
+rm /tmp/indiwebmanager.service

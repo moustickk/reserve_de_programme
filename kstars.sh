@@ -12,3 +12,5 @@
 sudo apt-get install -y kstars-bleeding
 sudo apt-get install -y gsc
 #
+exit
+
