@@ -9,7 +9,7 @@
 # installation de astrometry.net #
 ##################################
 #
-sudo apt-get $options install astrometry.net
+sudo apt-get -y install astrometry.net
 #
 ./index.sh
 #
