@@ -4,7 +4,20 @@
 # V0.1
 ################################################
 #!/bin/bash
+#
+###############################
+# mise en mémoire des variables
+###############################
+#
 dirinstall=${PWD}
-cp -r $dirinstall/* /$HOME/astro-indi/
-cd /$HOME/astro-indi/
-chmod +x ./*
+astroindi=/$HOME/astro-indi
+#
+################################################################
+# copie du contenu du dossier GitHub dans /home/$USER/astro-indi
+################################################################
+#
+cp -r $dirinstall/* $astroindi/
+cd $astroindi/
+chmod +x ./*            # rendre executable les fichiers
+
+
