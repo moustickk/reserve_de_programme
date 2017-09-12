@@ -75,7 +75,7 @@ if [ $exitstatus = 0 ]; then
 # Charger le fichier des références d'index #
 #############################################
 #
-	file2read=./index.txt
+	file2read=./annexe/index.txt
 	declare -a tabfile
 	declare -a tabvmin
 	declare -a tabvmax
@@ -119,9 +119,9 @@ if [ $exitstatus = 0 ]; then
 		((index++))
 	done
 #
-############################
-# what files to download ? #
-############################
+#######################################
+# quels fichiers sont à telecharger ? #
+#######################################
 #
 	listfile=""
 	for index in $(seq $indmax $indmin);
