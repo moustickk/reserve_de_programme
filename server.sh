@@ -39,10 +39,10 @@ done
 
 if [[ $indi_full == 1 ]]
 then
-    ./indi-full.sh
+    	./indi-full.sh
 fi
 if [[ $indi_perso == 1 ]]
 then
-	echo "EN cours"
+	./indi-perso.sh
 fi
 
