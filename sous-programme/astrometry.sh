@@ -5,14 +5,16 @@
 ################################################
 #!/bin/bash
 #
-##################################
-# installation de astrometry.net #
-##################################
+##########################################################################
+# installation de astrometry.net et des index pour la réduction en local #
+##########################################################################
 #
 sudo apt-get -y install astrometry.net
 #
-./index.sh
+./sous-programme/index.sh
+#
+#######################
+# fin de script terce #
+#######################
 #
 exit
-
-
