@@ -40,5 +40,9 @@ sudo systemctl daemon-reload
 sudo systemctl enable indiwebmanager.service
 sudo systemctl start indiwebmanager
 rm /tmp/indiwebmanager.service
-
+#
+########################
+# fin de script second #
+########################
+#
 exit
