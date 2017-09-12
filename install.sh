@@ -14,6 +14,7 @@ chmod +x ./*.sh            # rendre executable les fichiers
 
 ./prereq.sh
 ./server.sh
+./astrometry.sh
 
 DIALOG=${DIALOG=dialog}
 fichtemp=`tempfile 2>/dev/null` || fichtemp=/tmp/test$$
