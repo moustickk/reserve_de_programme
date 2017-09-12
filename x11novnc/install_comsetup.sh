@@ -10,7 +10,7 @@
 ######
 # Recherche du répertoire ConfigTinker
 ######
-dirinstall=$(find ~ -name ConfigTinker)
+dirinstall=$(find ~ -name x11novnc)
 ######
 # recupere le user
 ######
@@ -32,6 +32,7 @@ cp $dirinstall/startx11vnc.desktop ~/.config/autostart/
 # Installation accès vnc via navigateur
 ######
 sudo apt-get install -y novnc
+sudo apt-get install -y git
 
 cd /home/$moi
 
