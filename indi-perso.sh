@@ -24,6 +24,4 @@ else
 fi
 done
 
-./astrometry.sh
-
 exit
