@@ -7,26 +7,23 @@
 # V0.1
 ################################################
 #!/bin/bash
-######
-# Calcul de champ
-######
-# Recherche du répertoire ConfigTinker
-######
-######
-# Fonction min
-######
+###########
+#
+################
+# Fonction min #
+################
+#
 valmax="define vmax(a, b) {
 				if (a > b) {
 					return (a);
 				}
 				return (b);
 			}"
-######
-# test locale
-######
-source detect_language.sh
-if $french
-then
+#			
+##############################################
+# boite de dialogue caractéristique du setup #
+##############################################
+#
 	compute[0]="Chargement des fichiers index"
 	compute[1]="Caractéristiques du setup"
 	compute[2]="\nEntrez les grandeurs caractéristiques"
@@ -36,17 +33,7 @@ then
 	compute[6]="Résolution verticale capteur(pix)" 
 	compute[7]="Taille horizontale pixel(µm)"
 	compute[8]="Taille verticale pixel (µm)"
-else
-	compute[0]="Index file load"
-	compute[1]="Your setup characteristics"
-	compute[2]="\nInput characteristic sizes"
-	compute[3]="Focal (mm)"
-	compute[4]="Reducer/Barlow (x)"
-	compute[5]="Horizontal sensor resolution (pix)"
-	compute[6]="Vertical sensor resolution(pix)" 
-	compute[7]="Horizontal pixel size(µm)"
-	compute[8]="Vertical pixel size (µm)"
-fi
+
 echo ${compute["baktitle"]}
 
 DIALOG=${DIALOG=dialog}
@@ -55,15 +42,16 @@ trap "rm -f $fichtemp" 0 1 2 5 15
 
 $DIALOG  --backtitle "${compute[0]}" --title "${compute[1]}" \
 --form "${compute[2]}" 20 60 30 \
-"${compute[3]}" 1 1 "3010" 1 38 15 30 \
+"${compute[3]}" 1 1 "600" 1 38 15 30 \
 "${compute[4]}" 2 1 "1" 2 38 15 30 \
-"${compute[5]}" 3 1 "2750" 3 38 15 30 \
-"${compute[6]}" 4 1 "2200" 4 38 15 30 \
-"${compute[7]}" 5 1 "4.54" 5 38 15 30 \
-"${compute[8]}" 6 1 "4.54" 6 38 15 30 \
+"${compute[5]}" 3 1 "3096" 3 38 15 30 \
+"${compute[6]}" 4 1 "2080" 4 38 15 30 \
+"${compute[7]}" 5 1 "2.4" 5 38 15 30 \
+"${compute[8]}" 6 1 "2.4" 6 38 15 30 \
 2>$fichtemp
 exitstatus=$?
 echo $exitsatus
+
 if [ $exitstatus = 0 ]; then
 	readarray values < $fichtemp
 	F=$(echo ${values[0]} | xargs)
@@ -81,12 +69,11 @@ if [ $exitstatus = 0 ]; then
 	Diag=$(echo "scale=1;sqrt($ChampX*$ChampX+$ChampY*$ChampY)" | bc)
 	vmin=$(echo "scale=1;0.5*$Diag" | bc)
 	vmax=$(echo "$valmax;vmax($ChampX,$ChampY)" | bc)
-
-#echo "Largeur capteur (mm) "$LC" Hauteur capteur(mm)"$HC\
-#	" Champ X(') "$ChampX" Champ Y(') "$ChampY" Diag (') "$Diag
-######
-# Charger le fichier des références d'index
-######
+#
+#############################################
+# Charger le fichier des références d'index #
+#############################################
+#
 	file2read=./index.txt
 	declare -a tabfile
 	declare -a tabvmin
@@ -100,9 +87,11 @@ if [ $exitstatus = 0 ]; then
 		((index++))
 	done < $file2read
 	nval=$index
-######
-# Chercher les fichiers utiles
-######
+#	
+################################
+# Chercher les fichiers utiles #
+################################
+#
 	index=0
 	while [ $index -lt $nval ]
 	do
@@ -128,26 +117,24 @@ if [ $exitstatus = 0 ]; then
 		fi
 		((index++))
 	done
-######
-# what files to download ?
-######
+#
+############################
+# what files to download ? #
+############################
+#
 	listfile=""
 	for index in $(seq $indmax $indmin);
 	do
 		listfile=$listfile"\t"${tabfile[$index]}'\n'
 	done
-#
-	if $french
-	then
-		listfile=$(echo -e "Les fichiers a telecharger sont:\n"$listfile)
-	else
-		listefile=$(echo -e "Files to download:\n"$listfile)
-	fi
 
-######
-# Select files to download
-######
-	MENU_OPTIONS=
+	listfile=$(echo -e "Les fichiers a telecharger sont:\n"$listfile)
+#
+############################
+# Select files to download #
+############################
+#
+MENU_OPTIONS=
 	allfiles=
 	COUNT=0
 	for index in $(seq $indmax $indmin);
@@ -168,8 +155,6 @@ if [ $exitstatus = 0 ]; then
 		done
 	done
 
-	if $french
-	then
 		select[0]="Sélectionnez les fichiers \
 à installer:\nAttention à la taille des fichiers (jusqu'à plusieurs Go)\
 \nVoir sur data.astrometry.net/debian"
@@ -177,16 +162,11 @@ if [ $exitstatus = 0 ]; then
 		select[2]="installé"
 		select[3]="est déjà installé"
 		select[4]="problème d'installation pour "
-	else
-		select[0]="Select the files \
-to install:\nBeware to the size of the files (some are many Go)\
-\nTake a look on data.astrometry.net/debian"
-		select[1]="install packet "
-		select[2]="installed"
-		select[3]="is yet installed"
-		select[4]="Installation problems on "
-	fi
-# download files
+#
+###############################
+# téléchargement des fichiers #
+###############################
+#
 	cmd=(dialog --separate-output --clear --checklist "${select[0]}" 22 76 16)
 	options=(${MENU_OPTIONS})
 	choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -212,4 +192,11 @@ else
 	echo $exitstatus
 	exit
 fi
+#
+##########################
+# fin script quaternaire #
+##########################
+#
+exit
+
 
