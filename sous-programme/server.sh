@@ -5,11 +5,10 @@
 ################################################
 #!/bin/bash
 #
+#####################################################################
+# boite de dialogue pour choisir le type d'installation des drivers #
+#####################################################################
 #
-######
-# Options d'installation
-######
-
 DIALOG=${DIALOG=dialog}
 fichtemp=`tempfile 2>/dev/null` || fichtemp=/tmp/test$$
 trap "rm -f $fichtemp" 0 1 2 5 15
@@ -39,10 +38,15 @@ done
 
 if [[ $indi_full == 1 ]]
 then
-    	./indi-full.sh
+    	./sous-programme/indi-full.sh
 fi
 if [[ $indi_perso == 1 ]]
 then
-	./indi-perso.sh
+	./sous-programme/indi-perso.sh
 fi
-
+#
+############################
+# fin de script secondaire #
+############################
+#
+exit
