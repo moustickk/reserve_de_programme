@@ -38,7 +38,7 @@ sudo dpkg -i /tmp/$file
 sudo apt install -f
 #
 ########################
-# fin de script second #
+# fin de script tierce #
 ########################
 #
 exit
