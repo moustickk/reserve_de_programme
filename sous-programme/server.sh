@@ -46,8 +46,8 @@ then
 	./sous-programme/indi-perso.sh
 fi
 #
-############################
-# fin de script secondaire #
-############################
+########################
+# fin de script second #
+########################
 #
 exit
