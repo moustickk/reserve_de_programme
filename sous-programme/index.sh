@@ -5,6 +5,7 @@
 # 			Laurent Roge
 # On June 10 2017
 # V0.1
+# script appelé par astrometry.sh
 ################################################
 #!/bin/bash
 ###########
