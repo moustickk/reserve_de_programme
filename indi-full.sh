@@ -38,6 +38,4 @@ sudo dpkg -i /tmp/$file
 
 sudo apt install -f
 
-./astrometry.sh
-
 exit
