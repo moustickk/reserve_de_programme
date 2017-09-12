@@ -13,8 +13,8 @@ sudo apt-get -y install astrometry.net
 #
 ./sous-programme/index.sh
 #
-#######################
-# fin de script terce #
-#######################
+########################
+# fin de script second #
+########################
 #
 exit
