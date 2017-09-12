@@ -11,9 +11,9 @@
 #
 sudo apt-get install -y indi-full
 #
-#########################
-# detection achitecture #
-#########################
+##########################################
+# detection achitecture pour driver Atik #
+##########################################
 #
 case $(uname -p) in
 "armv7l")
@@ -24,11 +24,10 @@ case $(uname -p) in
     ;;
 esac
 #
-##################
-# telechargement #
-##################
+###################################################
+# telechargement et installation des drivers Atik #
+###################################################
 #
-
 software="atikccd"
 version="$software""-""1.24"
 file="$version""$proc.deb"
@@ -37,5 +36,9 @@ wget http://download.cloudmakers.eu/$file -P /tmp/
 sudo dpkg -i /tmp/$file
 
 sudo apt install -f
-
+#
+########################
+# fin de script second #
+########################
+#
 exit
