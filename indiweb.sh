@@ -27,7 +27,7 @@ sudo updatedb     # mettre à jour la base d'indexation
 
 dirindiweb=$(locate indi-web)  #récupérer le chemin du binaire indi-web
 
-sudo echo -e '[UNIT]\nDescription=INDI Web Manager\nAfter=multi-user.target\n\n[Service]\nType=idle\nUser='$MOI'\nExecStart='$dirindiweb' -v\nRestart=Always\nRestartSec=5\n[Install]\nWantedBy=multi-user.target' >> /tmp/indiwebmanager.service
+sudo echo -e '[UNIT]\nDescription=INDI Web Manager\nAfter=multi-user.target\n\n[Service]\nType=idle\nUser='$MOI'\nExecStart='$dirindiweb' -v\nRestart=Always\nRestartSec=5\n\n[Install]\nWantedBy=multi-user.target' >> /tmp/indiwebmanager.service
 
 sudo cp /tmp/indiwebmanager.service $dir/
 sudo chmod 644 $dir/indiwebmanager.service
