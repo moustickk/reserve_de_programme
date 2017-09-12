@@ -12,7 +12,6 @@ chmod +x ./sous-programme/*.sh
 # installation des prèrequis #
 ##############################
 #
-sudo rm /var/lib/dpkg/lock
 sudo apt-add-repository -y ppa:mutlaqja/ppa
 sudo apt-add-repository -y ppa:pch/phd2 
 sudo apt-get update
