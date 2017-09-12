@@ -163,9 +163,9 @@ MENU_OPTIONS=
 		select[3]="est déjà installé"
 		select[4]="problème d'installation pour "
 #
-###############################
-# téléchargement des fichiers #
-###############################
+###########################################################
+# téléchargement des fichiers et installation de fichiers #
+###########################################################
 #
 	cmd=(dialog --separate-output --clear --checklist "${select[0]}" 22 76 16)
 	options=(${MENU_OPTIONS})
