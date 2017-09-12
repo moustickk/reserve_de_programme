@@ -2,6 +2,7 @@
 # Authors:	Ludovic DUGUE
 # On Sept 11 2017
 # V0.1
+# script appelé par server.sh
 ################################################
 #!/bin/bash
 #
@@ -25,7 +26,7 @@ fi
 done
 #
 ########################
-# fin de script second #
+# fin de script tierce #
 ########################
 #
 exit
