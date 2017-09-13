@@ -98,6 +98,8 @@ then
     	./sous-programme/indiweb.sh	# installation de indi-web manager
 fi
 #
+./x11novnc/install_comsetup.sh
+#
 ###########################
 # fin du script principal #
 ###########################
