@@ -10,7 +10,7 @@
 # installation de astrometry.net et des index pour la réduction en local #
 ##########################################################################
 #
-sudo apt-get -y install astrometry.net
+sudo apt-get install -y astrometry.net
 #
 ./sous-programme/index.sh
 #
