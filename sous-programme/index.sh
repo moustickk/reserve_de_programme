@@ -10,6 +10,9 @@
 #!/bin/bash
 ###########
 #
+pkill dpkg
+sudo dpkg --configure -a
+#
 ################
 # Fonction min #
 ################
