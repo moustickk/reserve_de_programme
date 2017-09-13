@@ -2,7 +2,7 @@
 # Authors:	Ludovic DUGUE
 # On Sept 11 2017
 # V0.1
-# script appelé par server.sh
+# script appelé par install.sh
 ################################################
 #!/bin/bash
 #
