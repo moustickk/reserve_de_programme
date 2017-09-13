@@ -7,19 +7,24 @@
 # V0.1
 ################################################
 #!/bin/bash
-######
-# Recherche du répertoire ConfigTinker
-######
+#
+########################################
+# Recherche du répertoire ConfigTinker #
+########################################
+#
 dirinstall=$(find ~ -name x11novnc)
-######
-# recupere le user
-######
+#
+####################
+# recupere le user #
+####################
+#
 moi=$(whoami)
 data=$dirinstall
-
-######
-# Installation x11vnc
-######
+#
+#######################
+# Installation x11vnc #
+#######################
+#
 sudo apt -y install x11vnc
 mkdir -p ~/.x11vnc
 mkdir -p ~/bin/
@@ -28,9 +33,11 @@ chmod +x ~/bin/startx11vnc.sh
 ~/bin/startx11vnc.sh
 mkdir -p ~/.config/autostart/
 cp $dirinstall/startx11vnc.desktop ~/.config/autostart/
-######
-# Installation accès vnc via navigateur
-######
+#
+#########################################
+# Installation accès vnc via navigateur #
+#########################################
+#
 sudo apt-get install -y novnc
 sudo apt-get install -y git
 
@@ -44,5 +51,10 @@ sudo cp /tmp/novnc.service /etc/systemd/system/novnc.service
 sudo systemctl daemon-reload
 sudo systemctl enable novnc.service
 sudo systemctl start novnc.service
-
+#
+#################
+# fin du script #
+#################
+#
+exit
 
