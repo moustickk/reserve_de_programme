@@ -1,0 +1,109 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+###################################
+###                             ###  
+###        PTT2GPS.py           ###
+###                             ###  
+###################################
+###                             ###
+###      Creative Common        ###
+###       Michel CARLUEC        ###
+### <script type="text/javascript">eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%27%6d%69%63%68%65%6c%2e%63%61%72%6c%75%65%63%40%61%63%2d%72%65%6e%6e%65%73%2e%66%72%27%29'))</script>michel.carluec@ac-rennes.fr ###
+###        04-2014              ###
+###                             ###
+###################################
+ 
+import urllib, urllib2,re,csv,time,os
+import json
+ 
+def geocode(addr, api_key='API_KEY'):
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=true_or_false&api_key=%s" % (addr, urllib.quote(api_key))
+    data = urllib.urlopen(url).read()
+    statut = json.loads(data)['status']
+    resultat = "ERREUR"
+    if statut=='OK':
+        resultat = json.loads(data)['results'][0]['geometry']['location']
+    return resultat
+ 
+print """
+Recherche des coordonnées XY d'un point géographique par Google Map 
+à partir de son adresse postale.
+ 
+Script sous licence Creative Common - Michel CARLUEC 04-1014
+Vous avez préalablement construit un fichier csv dans lequel sont listés les 
+adresses à rechercher. Il est enregistré dans le dossier courant contenant 
+le présent script.
+Ce fichier SANS ENTETE est sous la forme : 
+nom;adresse;code;ville
+ 
+Le fichier de sortie se trouvera dans le dossier courant sous le nom de: 
+'output.csv'
+Le fichier d'erreurs (coordonnées non prouvées), sous le nom de: 'error.csv'
+ 
+"""
+input_file = raw_input("Entrez le nom du fichier d'entrées [défaut: input.csv]")
+ 
+if input_file:
+    input_file = input_file
+else: 
+    input_file = 'input.csv'
+ 
+#modify output file
+output_file = 'output.csv'
+error_file = 'error.csv'
+ 
+ 
+# Load input records
+try:
+    f = file(input_file, 'r') # open for 'r'eading
+    listeAdresses = "".join(f.readlines())
+    listeAdresses = listeAdresses.split("\n")
+    f.close()
+except IOError:
+    print "Erreur lors de l'ouverture du fichier d'adresses !"
+ 
+# Prepare the output file 
+resultats = [['NOM','VILLE','Latitude (Y)','Longitude (X)']]
+erreurs = []
+errors = False
+ 
+for uneAdresse in listeAdresses :
+    if uneAdresse!='':
+        nom, adresse1, code, ville = uneAdresse.split(';')
+        if "CEDEX" in ville.upper():
+            ville = ville[:ville.upper().index("CEDEX")]
+        addresseGoogle = adresse1+';'+code+';'+ville
+        coordonnees = geocode(addresseGoogle)
+        print nom
+        if coordonnees != "ERREUR":
+            print 'latitude: '+str(coordonnees['lat'])+' - longitude: '+str(coordonnees['lng'])
+            resultats.append([ nom, ville, coordonnees['lat'], coordonnees['lng'] ])
+        else:
+            print "ERREUR -->  ",coordonnees, addresseGoogle
+            erreurs.append([nom, addresseGoogle])
+            errors = True
+print """
+TERMINÉ
+Les données sont stockées dans le fichier output.csv.
+Les coordonnées GPS sont en projection SCR 'WGS 84' (code QGIS EPSG:4326)
+"""
+ 
+if errors:
+    print """
+ 
+Il y a eu des erreurs. veuillez consulter le fichier error.csv
+"""
+ 
+ofile  = open(output_file, "wb")
+#cs_writer = csv.writer(ofile, delimiter=';', quotechar='', quoting=csv.QUOTE_ALL)
+cs_writer = csv.writer(ofile, delimiter=';', quoting=csv.QUOTE_ALL)
+ 
+for row in resultats:
+    cs_writer.writerow(row)
+     
+efile  = open(error_file, "wb")
+#cs_writer = csv.writer(ofile, delimiter=';', quotechar='', quoting=csv.QUOTE_ALL)
+cer_writer = csv.writer(efile, delimiter=';', quoting=csv.QUOTE_ALL)
+ 
+for row in erreurs:
+    cer_writer.writerow(row)
