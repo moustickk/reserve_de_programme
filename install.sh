@@ -33,6 +33,12 @@ sudo apt-get install -y libnss3 software-properties-common dialog dirmngr git
 #
 ./sous-programme/astrometry.sh
 #
+##################################
+# installation d'indiweb manager #
+##################################
+#
+./sous-programme/indiweb.sh
+#
 ##############################################################
 # boite de dialogue pour les options installation prog tiers #
 ##############################################################
@@ -72,35 +78,9 @@ then
 	./sous-programme/phd2.sh     # installation de phd2
 fi
 #
-################################################
-# boite de dialogue pour option indiwebmanager #
-################################################
-#
-DIALOG=${DIALOG=dialog}
-fichtemp=`tempfile 2>/dev/null` || fichtemp=/tmp/test$$
-trap "rm -f $fichtemp" 0 1 2 5 15
-
-$DIALOG --backtitle "Option" \
-	--title "Options" --clear \
-    --checklist "Select Option" 0 0 0 \
-        0 "installer indiwebmanager" off 2> $fichtemp
-
-valret=$?
-indiweb=0
-
-for n in $(cat $fichtemp)
-do
-	case $n in
-	0)
-		indiweb=1
-		;;
-	esac
-done
-
-if [[ $indiweb == 1 ]]
-then
-    	./sous-programme/indiweb.sh	# installation de indi-web manager
-fi
+#####################################
+# instalation des communication web #
+#####################################
 #
 ./x11novnc/install_comsetup.sh
 #
