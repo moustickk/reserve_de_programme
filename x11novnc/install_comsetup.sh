@@ -32,7 +32,8 @@ cp $dirinstall/startx11vnc.sh ~/bin/
 chmod +x ~/bin/startx11vnc.sh
 ~/bin/startx11vnc.sh
 mkdir -p ~/.config/autostart/
-cp $dirinstall/startx11vnc.desktop ~/.config/autostart/
+cat $dirinstall/startx11vnc.desktop | sed -e "s/test/${moi}/g" > /tmp/startx11vnc.desktop
+cp /tmp/startx11vnc.desktop ~/.config/autostart/
 #
 #########################################
 # Installation accès vnc via navigateur #
