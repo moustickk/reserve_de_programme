@@ -6,8 +6,6 @@
 #!/bin/bash
 #
 sudo apt-get update
-pkill dpkg
-sudo dpkg --configure -a
 chmod +x ./*.sh            # rendre executable les fichiers *.sh
 chmod +x ./sous-programme/*.sh
 chmod +x ./x11novnc/*.sh
