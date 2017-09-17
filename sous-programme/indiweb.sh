@@ -46,4 +46,4 @@ rm /tmp/indiwebmanager.service
 # fin de script second #
 ########################
 #
-exit
+

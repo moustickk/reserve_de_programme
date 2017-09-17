@@ -35,11 +35,30 @@ file="$version""$proc.deb"
 echo $file
 wget http://download.cloudmakers.eu/$file -P /tmp/
 sudo dpkg -i /tmp/$file
-
+#
+####################################################
+# telechargement et installation des drivers Inova #
+####################################################
+#
+case $(uname -p) in
+"armv7l") 
+    proc="_arm-linux-gnueabihf"
+    ;;
+"x86_64")
+    proc="_x86_64-linux-gnu"
+    ;;
+esac
+software="indi-inova-ccd-"
+version="$software""-""1.3.0"
+file="$version""$proc.deb"
+echo $file
+wget http://www.inova-ccd.fr/download/E.\ Drivers/Linux/$file -P /tmp/
+sudo dpkg -i /tmp/$file
+#
 sudo apt install -f
 #
 ########################
 # fin de script tierce #
 ########################
 #
-exit
+

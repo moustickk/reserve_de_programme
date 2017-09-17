@@ -29,4 +29,4 @@ done
 # fin de script tierce #
 ########################
 #
-exit
+

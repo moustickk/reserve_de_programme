@@ -12,10 +12,10 @@
 #
 sudo apt-get install -y astrometry.net
 #
-#./sous-programme/index.sh  #???????????? bug pour l'instant à lancer independemment ???????????
+./sous-programme/index.sh
 #
 ########################
 # fin de script second #
 ########################
 #
-exit
+

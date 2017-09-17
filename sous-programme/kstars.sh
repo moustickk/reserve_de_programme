@@ -17,5 +17,5 @@ sudo apt-get install -y gsc
 # fin de script second #
 ########################
 #
-exit
+
 
