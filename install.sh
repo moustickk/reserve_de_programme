@@ -39,6 +39,12 @@ sudo apt-get install -y libnss3 software-properties-common dialog dirmngr git
 #
 ./sous-programme/indiweb.sh
 #
+#####################################
+# instalation des communication web #
+#####################################
+#
+./x11novnc/install_comsetup.sh
+#
 ##############################################################
 # boite de dialogue pour les options installation prog tiers #
 ##############################################################
@@ -77,12 +83,6 @@ if [[ $phd2 == 1 ]]
 then
 	./sous-programme/phd2.sh     # installation de phd2
 fi
-#
-#####################################
-# instalation des communication web #
-#####################################
-#
-./x11novnc/install_comsetup.sh
 #
 ###########################
 # fin du script principal #
