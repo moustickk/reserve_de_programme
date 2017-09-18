@@ -7,8 +7,6 @@
 #
 # récuperer le chemin des script
 #
-workFolder=$(readlink -f $(dirname $0))
-#
 time=2    #temps de pause avant une étape d'installation
 #
 sudo apt-get update
@@ -35,7 +33,7 @@ sudo apt-get install -y libnss3 software-properties-common dialog dirmngr git
 echo "########################## installation des drivers indi ##########################"
 sleep $time
 #
-./sous-programme/server.sh workFolder
+./sous-programme/server.sh 
 #
 ###########################################################################
 # installation d'Astrometry.net avec index pour la réduction astro locale #
@@ -43,7 +41,7 @@ sleep $time
 echo "########################## installation d'Astrometry.net et index ##########################"
 sleep $time
 #
-./sous-programme/astrometry.sh workFolder
+./sous-programme/astrometry.sh
 #
 ##################################
 # installation d'indiweb manager #
@@ -51,7 +49,7 @@ sleep $time
 echo "########################## installation d'IndiWeb Manager ##########################"
 sleep $time
 #
-./sous-programme/indiweb.sh workFolder
+./sous-programme/indiweb.sh
 #
 #####################################
 # instalation des communication web #
@@ -59,7 +57,7 @@ sleep $time
 echo "########################## installation de x11 et noVNC ##########################"
 sleep $time
 #
-./x11novnc/install_comsetup.sh workFolder
+./x11novnc/install_comsetup.sh
 #
 ##############################################################
 # boite de dialogue pour les options installation prog tiers #
@@ -95,13 +93,13 @@ if [[ $kstars == 1 ]]
 then
 	echo "########################## installation de Kstars ##########################"
 	sleep $time
-    	./sous-programme/kstars.sh workFolder   # installation de kstars
+    	./sous-programme/kstars.sh   # installation de kstars
 fi
 if [[ $phd2 == 1 ]]
 then
 	echo "########################## installation de phd2 ##########################"
 	sleep $time
-	./sous-programme/phd2.sh workFolder     # installation de phd2
+	./sous-programme/phd2.sh     # installation de phd2
 fi
 # 
 ###########################
@@ -111,8 +109,8 @@ fi
 echo "########################## création des raccourcis ##########################"
 sleep $time
 #
-./sous-programme/shortcut.sh workFolder kstars
-./sous-programme/shortcut.sh workFolder phd2
+./sous-programme/shortcut.sh kstars
+./sous-programme/shortcut.sh phd2
 #
 ###########################
 # fin du script principal #
