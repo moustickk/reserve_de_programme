@@ -5,14 +5,15 @@
 ################################################
 #!/bin/bash
 #
-time=2
+time=2    #temps de pause avant une étape d'installation
+#
 sudo apt-get update
 chmod +x ./*.sh            # rendre executable les fichiers *.sh
 chmod +x ./sous-programme/*.sh
 chmod +x ./x11novnc/*.sh
 #
 ##############################
-# installation des prèrequis #
+# installation des prérequis #
 ##############################
 echo "##########################installation des prérequis##########################"
 sleep $time
