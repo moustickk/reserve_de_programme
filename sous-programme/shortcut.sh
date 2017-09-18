@@ -10,9 +10,15 @@
 ######
 # Recherche du répertoire ConfigTinker
 ######
-dirinstall=$(find ~ -name ConfigTinker)
+#dirinstall=$(find ~ -name ConfigTinker)
 ######
-source detect_language.sh
+lang=$(locale | grep LANG= | grep fr_FR)
+if [[ $lang == *"fr_FR"* ]]
+then
+	french=true
+else
+	french=false
+fi
 ######
 # Créer le raccourci bureau
 ######
@@ -40,7 +46,7 @@ if [ -f $fichier ]; then
 	fi
 else
 	AppName=$(echo $1 | sed 's/^./\u&/')
-	cat $dirinstall/template.desktop  | sed -e "s/APP_NAME/$1/g" > /tmp/shortcut1
+	cat ./annexe/template.desktop  | sed -e "s/APP_NAME/$1/g" > /tmp/shortcut1
 	cat /tmp/shortcut1  | sed -e "s%APP_EXEC%$AppExec%g" > /tmp/shortcut2
 	cat /tmp/shortcut2 | sed -e "s/NAME/$AppName/g" > ~/$desktop/$AppName.desktop
 	chmod +x ~/$desktop/$AppName.desktop
