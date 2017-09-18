@@ -99,10 +99,18 @@ then
 	sleep $time
 	./sous-programme/phd2.sh     # installation de phd2
 fi
+# 
+###########################
+# création des raccourcis #
+###########################
+#
+./sous-programme/shortcut.sh kstars
+./sous-programme/shortcut.sh phd2
 #
 ###########################
 # fin du script principal #
 ###########################
+#
 whiptail --title "Fin de script" --msgbox "l'installation est finie,\n
 vous avez maintenant une serveur astro près. Il y 2 connexion au serveur accessible par naviguateur sur le reseau\n
 indiwebmanager accessible a l'adresse "http://ip-du-serveur:8624"\n
