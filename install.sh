@@ -13,6 +13,8 @@ chmod +x ./x11novnc/*.sh
 ##############################
 # installation des prèrequis #
 ##############################
+echo "##########################installation des prérequis##########################"
+sleep 4
 #
 sudo apt-add-repository -y ppa:mutlaqja/ppa
 sudo apt-add-repository -y ppa:pch/phd2 
@@ -24,24 +26,32 @@ sudo apt-get install -y libnss3 software-properties-common dialog dirmngr git
 #####################################
 # lancer l'installation des drivers #
 #####################################
+echo "##########################installation des drivers indi##########################"
+sleep 4
 #
 ./sous-programme/server.sh
 #
 ###########################################################################
 # installation d'Astrometry.net avec index pour la réduction astro locale #
 ###########################################################################
+echo "##########################installation d'Astrometry.net et index##########################"
+sleep 4
 #
 ./sous-programme/astrometry.sh
 #
 ##################################
 # installation d'indiweb manager #
 ##################################
+echo "##########################installation d'IndiWeb Manager##########################"
+sleep 4
 #
 ./sous-programme/indiweb.sh
 #
 #####################################
 # instalation des communication web #
 #####################################
+echo "##########################installation de x11 et noVNC##########################"
+sleep 4
 #
 ./x11novnc/install_comsetup.sh
 #
@@ -77,15 +87,20 @@ done
 
 if [[ $kstars == 1 ]]
 then
+	echo "##########################installation de Kstars##########################"
+	sleep 4
     	./sous-programme/kstars.sh   # installation de kstars
 fi
 if [[ $phd2 == 1 ]]
 then
+	echo "##########################installation de phd2##########################"
+	sleep 4
 	./sous-programme/phd2.sh     # installation de phd2
 fi
 #
 ###########################
 # fin du script principal #
 ###########################
+whiptail --title "Fin de script" --yes "Les fichiers d'index peuvent peser plusieurs Go de données, voulez-vous continuer ?" 0 0
 #
 exit
