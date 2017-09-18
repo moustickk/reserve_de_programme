@@ -15,7 +15,7 @@ chmod +x ./x11novnc/*.sh
 ##############################
 # installation des prérequis #
 ##############################
-echo "##########################installation des prérequis##########################"
+echo "########################## installation des prérequis ##########################"
 sleep $time
 #
 sudo apt-add-repository -y ppa:mutlaqja/ppa
@@ -28,7 +28,7 @@ sudo apt-get install -y libnss3 software-properties-common dialog dirmngr git
 #####################################
 # lancer l'installation des drivers #
 #####################################
-echo "##########################installation des drivers indi##########################"
+echo "########################## installation des drivers indi ##########################"
 sleep $time
 #
 ./sous-programme/server.sh
@@ -36,7 +36,7 @@ sleep $time
 ###########################################################################
 # installation d'Astrometry.net avec index pour la réduction astro locale #
 ###########################################################################
-echo "##########################installation d'Astrometry.net et index##########################"
+echo "########################## installation d'Astrometry.net et index ##########################"
 sleep $time
 #
 ./sous-programme/astrometry.sh
@@ -44,7 +44,7 @@ sleep $time
 ##################################
 # installation d'indiweb manager #
 ##################################
-echo "##########################installation d'IndiWeb Manager##########################"
+echo "########################## installation d'IndiWeb Manager ##########################"
 sleep $time
 #
 ./sous-programme/indiweb.sh
@@ -52,7 +52,7 @@ sleep $time
 #####################################
 # instalation des communication web #
 #####################################
-echo "##########################installation de x11 et noVNC##########################"
+echo "########################## installation de x11 et noVNC ##########################"
 sleep $time
 #
 ./x11novnc/install_comsetup.sh
@@ -89,13 +89,13 @@ done
 
 if [[ $kstars == 1 ]]
 then
-	echo "##########################installation de Kstars##########################"
+	echo "########################## installation de Kstars ##########################"
 	sleep $time
     	./sous-programme/kstars.sh   # installation de kstars
 fi
 if [[ $phd2 == 1 ]]
 then
-	echo "##########################installation de phd2##########################"
+	echo "########################## installation de phd2 ##########################"
 	sleep $time
 	./sous-programme/phd2.sh     # installation de phd2
 fi
@@ -103,6 +103,9 @@ fi
 ###########################
 # création des raccourcis #
 ###########################
+#
+echo "########################## création des raccourcis ##########################"
+sleep $time
 #
 ./sous-programme/shortcut.sh kstars
 ./sous-programme/shortcut.sh phd2
