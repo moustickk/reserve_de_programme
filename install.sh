@@ -10,13 +10,6 @@ chmod +x ./*.sh            # rendre executable les fichiers *.sh
 chmod +x ./sous-programme/*.sh
 chmod +x ./x11novnc/*.sh
 #
-########
-# test #
-########
-#
-#source ./test.sh -x ./install.sh
-#$comand
-#
 ##############################
 # installation des prèrequis #
 ##############################
