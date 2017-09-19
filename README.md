@@ -1,5 +1,5 @@
 # ServerIndi-small-install
-installation d'un serveur astro minimaliste
+installation d'un serveur astro minimaliste sur Ubuntu 16.04.03LTS bureau Unity
 
 1- telecharger le Zip Github sur votre bureau et decompressez-le
 
