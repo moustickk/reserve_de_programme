@@ -43,8 +43,23 @@ sudo apt-get install -y novnc
 sudo apt-get install -y git
 
 cd /home/$moi
+#
+#test si le dossier noVNC existe, si oui suppression
+#
+if [ -d "/home/${moi}/noVNC" ]
+  then
+  echo "suppression de l'ancien dossier noVNC"
+  rm -Rf /home/$moi/noVNC
+fi
 
 git clone git://github.com/kanaka/noVNC
+
+if [ -f /etc/systemd/system/novnc.service ]
+  then
+  sudo systemctl stop novnc.service
+  sudo systemctl disable novnc.service
+  sudo rm /etc/systemd/system/novnc.service
+fi
 
 cat $data/novnc.service | sed -e "s/MOI/${moi}/g" > /tmp/novnc.service
 sudo cp /tmp/novnc.service /etc/systemd/system/novnc.service
