@@ -9,13 +9,13 @@
 # pre-req #
 ###########
 #
-sudo apt-get -y install python-pip
+sudo apt-get -y install python3-pip
 #
 #######################################
 # installation des sources du serveur #
 #######################################
 #
-pip install indiweb
+sudo pip3 install indiweb
 #
 ###########################
 # Installation du service #
