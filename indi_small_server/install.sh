@@ -12,7 +12,7 @@ time=2    #temps de pause avant une étape d'installation
 sudo apt-get update
 chmod +x ./*.sh            # rendre executable les fichiers *.sh
 chmod +x ./sous-programme/*.sh
-chmod +x ./x11novnc/*.sh
+#chmod +x ./x11novnc/*.sh
 #
 ##############################
 # installation des prérequis #
@@ -54,10 +54,10 @@ sleep $time
 #####################################
 # instalation des communication web #
 #####################################
-echo "########################## installation de x11 et noVNC ##########################"
-sleep $time
+#echo "########################## installation de x11 et noVNC ##########################"
+#sleep $time
 #
-./x11novnc/install_comsetup.sh
+#./x11novnc/install_comsetup.sh
 #
 ##############################################################
 # boite de dialogue pour les options installation prog tiers #
