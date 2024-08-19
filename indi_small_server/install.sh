@@ -106,11 +106,11 @@ fi
 # création des raccourcis #
 ###########################
 #
-echo "########################## création des raccourcis ##########################"
-sleep $time
+#echo "########################## création des raccourcis ##########################"
+#sleep $time
 #
-./sous-programme/shortcut.sh kstars
-./sous-programme/shortcut.sh phd2
+#./sous-programme/shortcut.sh kstars
+#./sous-programme/shortcut.sh phd2
 #
 ###########################
 # fin du script principal #
