@@ -9,7 +9,7 @@
 # pre-req #
 ###########
 #
-sudo apt-get -y install python3-pip
+sudo apt-get -y install python3-pip plocate
 #
 #######################################
 # installation des sources du serveur #
