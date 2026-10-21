@@ -1,7 +1,18 @@
 import json
 import time
+import os
 
-STATE_FILE = "roof_state.json"
+DATA_DIR = os.path.join(
+    os.path.dirname(__file__),
+    "data"
+)
+
+os.makedirs(DATA_DIR, exist_ok=True)
+
+STATE_FILE = os.path.join(
+    DATA_DIR,
+    "roof_state.json"
+)
 
 
 def save_state(data):

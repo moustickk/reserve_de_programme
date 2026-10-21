@@ -7,5 +7,5 @@ dist/
 *.exe
 *.spec
 
-meteo_log.txt
-roof.log
+python/data/*.log
+python/data/*.txt
