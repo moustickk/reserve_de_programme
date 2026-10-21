@@ -63,6 +63,43 @@ def connected():
     }
 
 
+@app.put("/api/v1/safetymonitor/0/connected")
+def set_connected():
+
+    return {
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+@app.put("/api/v1/safetymonitor/0/connect")
+def connect():
+
+    return {
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+@app.put("/api/v1/safetymonitor/0/disconnect")
+def disconnect():
+
+    return {
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+@app.get("/api/v1/safetymonitor/0/connecting")
+def connecting():
+
+    return {
+        "Value": False,
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
 @app.get("/api/v1/safetymonitor/0/interfaceversion")
 def interfaceversion():
 
