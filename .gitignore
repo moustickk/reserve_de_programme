@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+
+meteo_log.txt
+roof.log
+
+*.log
+
+.vscode/
+.idea/

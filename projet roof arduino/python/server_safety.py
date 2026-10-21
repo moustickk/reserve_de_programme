@@ -1,31 +1,119 @@
-import falcon
-from wsgiref.simple_server import make_server
-import safety
+from fastapi import FastAPI
 import threading
+import uvicorn
 
-app = falcon.App()
+import safety
 
-# Routes du Safety Monitor
-app.add_route('/api/v1/safetymonitor/0/issafe', safety.issafe())
-app.add_route('/api/v1/safetymonitor/0/name', safety.name())
-app.add_route('/api/v1/safetymonitor/0/description', safety.description())
-app.add_route('/api/v1/safetymonitor/0/connected', safety.connected())
-app.add_route('/api/v1/safetymonitor/0/connect', safety.connect())
-app.add_route('/api/v1/safetymonitor/0/disconnect', safety.disconnect())
-app.add_route('/api/v1/safetymonitor/0/connecting', safety.connecting())
-app.add_route('/api/v1/safetymonitor/0/interfaceversion', safety.interfaceversion())
-app.add_route('/api/v1/safetymonitor/0/driverversion', safety.driverversion())
-app.add_route('/api/v1/safetymonitor/0/driverinfo', safety.driverinfo())
-app.add_route('/api/v1/safetymonitor/0/supportedactions', safety.supportedactions())
-app.add_route('/api/v1/safetymonitor/0/devicestate', safety.devicestate())
+app = FastAPI()
 
-if __name__ == '__main__':
-    # Lancement du thread de météo en arrière-plan
-    monitor_thread = threading.Thread(target=safety.weather_monitor_loop, daemon=True)
-    monitor_thread.start()
+monitor_started = False
 
-    print("Démarrage du serveur Safety Monitor (Météo)...")
-    print("En écoute sur le port 11112")
-    with make_server('0.0.0.0', 11112, app) as httpd:
-        print("Serveur Safety Monitor prêt !")
-        httpd.serve_forever()
+
+def ensure_monitor_started():
+    global monitor_started
+
+    if not monitor_started:
+        threading.Thread(
+            target=safety.weather_monitor_loop,
+            daemon=True
+        ).start()
+
+        monitor_started = True
+
+
+@app.on_event("startup")
+def startup_event():
+    ensure_monitor_started()
+
+
+@app.get("/api/v1/safetymonitor/0/issafe")
+def issafe():
+    with safety.state_lock:
+        return {
+            "Value": safety.is_safe,
+            "ErrorNumber": 0,
+            "ErrorMessage": ""
+        }
+
+
+@app.get("/api/v1/safetymonitor/0/name")
+def name():
+    return {
+        "Value": "Meteo Safety Monitor (Open-Meteo)",
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+@app.get("/api/v1/safetymonitor/0/description")
+def description():
+    with safety.state_lock:
+        desc = safety.current_status_text
+
+    return {
+        "Value": desc,
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+@app.get("/api/v1/safetymonitor/0/connected")
+def connected():
+    return {
+        "Value": True,
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+@app.get("/api/v1/safetymonitor/0/interfaceversion")
+def interfaceversion():
+    return {
+        "Value": 2,
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+@app.get("/api/v1/safetymonitor/0/driverversion")
+def driverversion():
+    return {
+        "Value": "1.5.0",
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+@app.get("/api/v1/safetymonitor/0/driverinfo")
+def driverinfo():
+    return {
+        "Value": "Meteo Alpaca Safety Monitor",
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+@app.get("/api/v1/safetymonitor/0/supportedactions")
+def supportedactions():
+    return {
+        "Value": [],
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+@app.get("/api/v1/safetymonitor/0/devicestate")
+def devicestate():
+    return {
+        "Value": [],
+        "ErrorNumber": 0,
+        "ErrorMessage": ""
+    }
+
+
+if __name__ == "__main__":
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=11112
+    )
