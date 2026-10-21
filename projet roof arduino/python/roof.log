@@ -1,0 +1,140 @@
+2026-10-19 18:33:46,189 CLOSE command
+2026-10-19 18:33:48,953 STOP command
+2026-10-19 18:51:46,378 OPEN command
+2026-10-19 18:52:45,539 CLOSE command
+2026-10-19 18:52:47,509 STOP command
+2026-10-19 18:52:54,776 CLOSE command
+2026-10-19 18:52:56,506 STOP command
+2026-10-19 18:53:04,496 CLOSE command
+2026-10-19 18:53:49,493 OPEN command
+2026-10-19 18:53:54,910 STOP command
+2026-10-19 18:54:02,405 CLOSE command
+2026-10-19 19:04:43,356 STOP command
+2026-10-19 19:04:54,766 STOP command
+2026-10-19 19:04:56,617 CLOSE command
+2026-10-19 19:09:49,779 OPEN command
+2026-10-19 19:12:42,721 CLOSE command
+2026-10-19 19:17:30,008 OPEN command
+2026-10-19 19:17:34,899 STOP command
+2026-10-19 19:18:13,062 CLOSE command
+2026-10-19 19:20:21,760 OPEN command
+2026-10-19 19:25:57,361 CLOSE command
+2026-10-19 19:26:08,062 STOP command
+2026-10-19 19:28:13,505 CLOSE command
+2026-10-19 19:28:55,819 OPEN command
+2026-10-19 19:29:12,356 STOP command
+2026-10-19 19:33:07,897 CLOSE command
+2026-10-19 19:36:51,059 OPEN command
+2026-10-19 19:36:58,043 STOP command
+2026-10-19 19:37:45,440 STOP command
+2026-10-19 19:37:48,669 STOP command
+2026-10-19 19:37:49,264 STOP command
+2026-10-19 19:37:49,808 STOP command
+2026-10-19 20:31:05,795 STOP command
+2026-10-19 20:31:07,484 OPEN command
+2026-10-19 20:31:11,675 STOP command
+2026-10-19 20:31:20,770 OPEN command
+2026-10-19 20:31:25,690 STOP command
+2026-10-19 20:36:06,957 CLOSE command
+2026-10-19 20:36:10,745 STOP command
+2026-10-19 20:36:20,436 STOP command
+2026-10-19 20:36:22,643 OPEN command
+2026-10-19 20:36:31,541 STOP command
+2026-10-19 20:36:44,405 STOP command
+2026-10-19 20:36:45,811 STOP command
+2026-10-19 20:36:46,016 STOP command
+2026-10-19 20:36:46,197 STOP command
+2026-10-19 20:36:46,389 STOP command
+2026-10-19 20:36:55,919 STOP command
+2026-10-19 20:37:00,446 CLOSE command
+2026-10-19 20:37:33,292 OPEN command
+2026-10-19 20:37:53,992 STOP command
+2026-10-19 20:38:05,506 STOP command
+2026-10-19 20:38:12,480 STOP command
+2026-10-19 20:38:13,390 STOP command
+2026-10-19 20:38:13,635 STOP command
+2026-10-19 20:38:15,665 CLOSE command
+2026-10-19 20:38:17,834 STOP command
+2026-10-19 20:38:25,605 OPEN command
+2026-10-19 20:39:12,824 CLOSE command
+2026-10-19 20:41:01,958 OPEN command
+2026-10-19 20:41:04,707 STOP command
+2026-10-19 20:41:07,894 CLOSE command
+2026-10-19 20:48:03,538 OPEN command
+2026-10-19 20:48:55,274 CLOSE command
+2026-10-19 20:49:47,287 OPEN command
+2026-10-19 20:50:39,306 CLOSE command
+2026-10-19 20:51:31,295 OPEN command
+2026-10-19 20:52:23,283 CLOSE command
+2026-10-19 20:53:17,315 OPEN command
+2026-10-19 20:54:09,283 CLOSE command
+2026-10-19 20:55:01,279 OPEN command
+2026-10-19 20:55:53,295 CLOSE command
+2026-10-19 20:57:20,912 OPEN command
+2026-10-19 20:57:33,563 STOP command
+2026-10-19 20:57:39,864 CLOSE command
+2026-10-19 21:16:30,112 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-19 21:16:40,753 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-19 21:44:41,705 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-19 21:44:45,079 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-19 22:04:23,847 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-19 22:04:27,693 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-19 22:04:31,513 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-19 22:04:36,098 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-19 22:04:58,186 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-19 22:05:00,354 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-20 08:55:09,090 STOP command
+2026-10-20 08:56:37,394 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-20 08:56:46,724 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-20 09:00:20,021 EQMOD error: (-2147221008, 'CoInitialize n’a pas été appelé.', None, None)
+2026-10-20 09:01:32,664 Mount already parked
+2026-10-20 09:01:32,674 OPEN command
+2026-10-20 09:02:28,619 Mount not parked
+2026-10-20 09:02:28,619 Sending PARK command
+2026-10-20 09:02:30,647 Mount parked
+2026-10-20 09:02:30,657 CLOSE command
+2026-10-20 11:54:12,727 Mount not parked
+2026-10-20 11:54:12,727 Sending PARK command
+2026-10-20 11:54:14,752 Mount parked
+2026-10-20 11:54:14,762 OPEN command
+2026-10-20 11:54:23,063 STOP command
+2026-10-20 11:54:30,837 Mount not parked
+2026-10-20 11:54:30,837 Sending PARK command
+2026-10-20 11:54:32,877 Mount parked
+2026-10-20 11:54:32,887 CLOSE command
+2026-10-20 11:58:35,616 Mount already parked
+2026-10-20 11:58:35,625 OPEN command
+2026-10-20 12:00:18,848 Mount not parked
+2026-10-20 12:00:18,848 Sending PARK command
+2026-10-20 12:00:28,932 Mount parked
+2026-10-20 12:00:28,942 CLOSE command
+2026-10-20 12:00:28,966 Mount already parked
+2026-10-20 12:00:28,976 CLOSE command
+2026-10-20 13:50:17,242 Mount already parked
+2026-10-20 13:50:17,251 OPEN command
+2026-10-20 13:53:17,463 Mount not parked
+2026-10-20 13:53:17,463 Sending PARK command
+2026-10-20 13:53:27,574 Mount not parked
+2026-10-20 13:53:27,575 Sending PARK command
+2026-10-20 13:53:31,524 Mount parked
+2026-10-20 13:53:31,533 CLOSE command
+2026-10-20 13:53:31,579 Mount parked
+2026-10-20 13:53:31,589 CLOSE command
+2026-10-20 16:46:49,293 Mount already parked
+2026-10-20 16:46:49,303 OPEN command
+2026-10-20 16:47:57,233 Mount not parked
+2026-10-20 16:47:57,233 Sending PARK command
+2026-10-20 16:48:03,279 Mount parked
+2026-10-20 16:48:03,289 CLOSE command
+2026-10-20 16:48:22,417 STOP command
+2026-10-20 16:48:53,244 Mount already parked
+2026-10-20 16:48:53,253 OPEN command
+2026-10-20 16:49:21,290 Mount already parked
+2026-10-20 16:49:21,300 CLOSE command
+2026-10-20 21:32:38,282 Mount not parked
+2026-10-20 21:32:38,282 Sending PARK command
+2026-10-20 21:32:40,331 Mount parked
+2026-10-20 21:32:40,486 OPEN command
+2026-10-20 21:32:45,067 STOP command
+2026-10-20 21:32:55,607 Mount already parked
+2026-10-20 21:32:55,764 CLOSE command
