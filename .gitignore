@@ -6,6 +6,3 @@ dist/
 
 *.exe
 *.spec
-
-python/data/*.log
-python/data/*.txt
