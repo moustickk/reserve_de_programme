@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 import threading
 import requests
@@ -14,19 +15,33 @@ MAX_RAIN_MM = 0.1
 MAX_CLOUD_COVER = 80
 MAX_TEMP_MIN = 0.5
 
+CACHE_TIMEOUT_MINUTES = 30
+
+
+def get_base_path():
+
+    if getattr(sys, "frozen", False):
+        return os.path.dirname(sys.executable)
+
+    return os.path.dirname(__file__)
+
+
+BASE_DIR = get_base_path()
+
 DATA_DIR = os.path.join(
-    os.path.dirname(__file__),
+    BASE_DIR,
     "data"
 )
 
-os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(
+    DATA_DIR,
+    exist_ok=True
+)
 
 LOG_FILE = os.path.join(
     DATA_DIR,
     "meteo_log.txt"
 )
-
-CACHE_TIMEOUT_MINUTES = 30
 
 is_safe = False
 
@@ -54,7 +69,6 @@ weather_data = {
 def get_last_update():
 
     if last_weather_update is None:
-
         return "Never"
 
     return last_weather_update.strftime(
@@ -124,7 +138,9 @@ def write_to_log(message):
 
     except Exception as ex:
 
-        print(ex)
+        print(
+            f"Erreur log météo : {ex}"
+        )
 
 
 def update_weather_data(data):
@@ -251,6 +267,14 @@ def update_weather_data(data):
             "RISQUE GEL"
         )
 
+    weather_summary = (
+        f"Temp={curr_temp}°C | "
+        f"Vent={curr_wind} km/h | "
+        f"Nuages={curr_clouds}% | "
+        f"Pluie={next_rain_prob}% "
+        f"({next_rain} mm)"
+    )
+
     with state_lock:
 
         if reasons:
@@ -258,14 +282,17 @@ def update_weather_data(data):
             is_safe = False
 
             current_status_text = (
-                f"UNSAFE [{', '.join(reasons)}]"
+                f"UNSAFE [{', '.join(reasons)}] | "
+                f"{weather_summary}"
             )
 
         else:
 
             is_safe = True
 
-            current_status_text = "SAFE"
+            current_status_text = (
+                f"SAFE | {weather_summary}"
+            )
 
         last_weather_update = datetime.now()
 
@@ -316,7 +343,7 @@ def weather_monitor_loop():
 
                     write_to_log(
                         f"ERREUR RESEAU "
-                        f"TENTATIVE {attempt+1}/3"
+                        f"TENTATIVE {attempt + 1}/3"
                     )
 
                     time.sleep(5)
@@ -381,7 +408,6 @@ def start_weather_monitor():
     global monitor_started
 
     if monitor_started:
-
         return
 
     threading.Thread(

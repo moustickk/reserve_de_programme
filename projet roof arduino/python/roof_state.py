@@ -1,13 +1,28 @@
 import json
 import time
 import os
+import sys
+
+
+def get_base_path():
+
+    if getattr(sys, "frozen", False):
+        return os.path.dirname(sys.executable)
+
+    return os.path.dirname(__file__)
+
+
+BASE_DIR = get_base_path()
 
 DATA_DIR = os.path.join(
-    os.path.dirname(__file__),
+    BASE_DIR,
     "data"
 )
 
-os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(
+    DATA_DIR,
+    exist_ok=True
+)
 
 STATE_FILE = os.path.join(
     DATA_DIR,
@@ -42,7 +57,7 @@ def load_state():
 
             return json.load(f)
 
-    except:
+    except Exception:
 
         return {
             "state": "UNKNOWN",
